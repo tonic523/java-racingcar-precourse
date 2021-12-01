@@ -23,7 +23,7 @@ public class Game {
 
 	public void play() {
 		for (Car car : cars) {
-			car.move(Randoms.pickNumberInRange(MOVE_MAX_VALUE, MOVE_MAX_VALUE));
+			car.move(Randoms.pickNumberInRange(MOVE_MIN_VALUE, MOVE_MAX_VALUE));
 		}
 	}
 

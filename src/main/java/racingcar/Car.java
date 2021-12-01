@@ -42,4 +42,9 @@ public class Car implements Comparable<Car> {
 		}
 		return -1;
 	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
 }

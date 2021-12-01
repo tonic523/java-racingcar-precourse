@@ -3,6 +3,8 @@ package racingcar;
 import static racingcar.Car.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -23,5 +25,20 @@ public class Game {
 		for (Car car : cars) {
 			car.move(Randoms.pickNumberInRange(MOVE_MAX_VALUE, MOVE_MAX_VALUE));
 		}
+	}
+
+	public List<Car> winners() {
+		List<Car> winners = new ArrayList<>();
+		Collections.sort(cars);
+		int maxPosition = cars.get(0).getPosition();
+		Iterator<Car> iterator = cars.iterator();
+		while(iterator.hasNext()) {
+			Car car = iterator.next();
+			if (car.getPosition() != maxPosition) {
+				break;
+			}
+			winners.add(car);
+		}
+		return winners;
 	}
 }

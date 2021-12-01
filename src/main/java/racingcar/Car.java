@@ -1,6 +1,6 @@
 package racingcar;
 
-public class Car {
+public class Car implements Comparable<Car> {
 
 	private static String nameErrorMessage = "[ERROR] 이름은 1자 이상 5자 이하여야 합니다.";
 	private static int MOVABLE_MIN_VALUE = 4;
@@ -29,5 +29,13 @@ public class Car {
 		if (name.isEmpty() || name.length() > 5) {
 			throw new IllegalArgumentException(nameErrorMessage);
 		}
+	}
+
+	@Override
+	public int compareTo(Car c) {
+		if (position < c.position) {
+			return 1;
+		}
+		return -1;
 	}
 }

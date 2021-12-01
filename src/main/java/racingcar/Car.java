@@ -15,17 +15,17 @@ public class Car implements Comparable<Car> {
 		this.name = name;
 	}
 
-    public void move(int moveValue) {
-        if (moveValue >= MOVABLE_MIN_VALUE) {
-            position++;
-        }
-    }
+	public void move(int moveValue) {
+		if (moveValue >= MOVABLE_MIN_VALUE) {
+			position++;
+		}
+	}
 
-    public int getPosition() {
-        return position;
-    }
+	public int getPosition() {
+		return position;
+	}
 
-    public String getName() {
+	public String getName() {
 		return name;
 	}
 

@@ -32,7 +32,7 @@ public class Game {
 		Collections.sort(cars);
 		int maxPosition = cars.get(0).getPosition();
 		Iterator<Car> iterator = cars.iterator();
-		while(iterator.hasNext()) {
+		while (iterator.hasNext()) {
 			Car car = iterator.next();
 			if (car.getPosition() != maxPosition) {
 				break;

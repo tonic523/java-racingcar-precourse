@@ -14,4 +14,12 @@ public class CarTest {
 			.isInstanceOf(IllegalArgumentException.class)
 			.hasMessageContaining("[ERROR] 이름은 1자 이상 5자 이하여야 합니다.");
 	}
+
+	@DisplayName("전진")
+	@Test
+	void move() {
+		Car car = new Car("car");
+		car.move(true);
+		assertThat(car.getPosition()).isEqualTo(1);
+	}
 }

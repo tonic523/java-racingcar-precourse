@@ -25,6 +25,10 @@ public class Car implements Comparable<Car> {
         return position;
     }
 
+    public String getName() {
+		return name;
+	}
+
 	private void validateName(String name) {
 		if (name.isEmpty() || name.length() > 5) {
 			throw new IllegalArgumentException(nameErrorMessage);

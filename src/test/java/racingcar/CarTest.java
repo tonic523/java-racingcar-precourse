@@ -19,7 +19,9 @@ public class CarTest {
 	@Test
 	void move() {
 		Car car = new Car("car");
-		car.move(true);
+		car.move(4);
+		assertThat(car.getPosition()).isEqualTo(1);
+		car.move(3);
 		assertThat(car.getPosition()).isEqualTo(1);
 	}
 }

@@ -14,4 +14,10 @@ public class Game {
 	public List<Car> getCars() {
 		return cars;
 	}
+
+	public void play(Movable movable) {
+		for (Car car : cars) {
+			car.moveForward(movable.move());
+		}
+	}
 }

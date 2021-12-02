@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Game {
@@ -19,5 +20,9 @@ public class Game {
 		for (Car car : cars) {
 			car.moveForward(movable.move());
 		}
+	}
+
+	public void rankInOrder() {
+		Collections.sort(cars);
 	}
 }

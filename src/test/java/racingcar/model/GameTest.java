@@ -44,4 +44,16 @@ public class GameTest {
 			assertThat(car.getPosition()).isEqualTo(1);
 		}
 	}
+
+	@DisplayName("순위 정렬")
+	@Test
+	void rankInOrder() {
+		List<Car> cars = game.getCars();
+		Car expected = cars.get(2);
+		expected.moveForward(5);
+
+		game.rankInOrder();
+		Car actual = game.getCars().get(0);
+		assertThat(actual.getName()).isEqualTo(expected.getName());
+	}
 }

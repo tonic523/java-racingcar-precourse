@@ -10,7 +10,7 @@ public class CarTest {
 	@Test
 	void validateName() {
 		assertThatThrownBy(() -> new Car(""))
-		.isInstanceOf(IllegalArgumentException.class);
+			.isInstanceOf(IllegalArgumentException.class);
 	}
 
 	@DisplayName("4이상이면 전진")

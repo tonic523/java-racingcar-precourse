@@ -56,4 +56,16 @@ public class GameTest {
 		Car actual = game.getCars().get(0);
 		assertThat(actual.getName()).isEqualTo(expected.getName());
 	}
+
+	@DisplayName("우승한 자동차들")
+	@Test
+	void winners() {
+		List<Car> cars = game.getCars();
+		Car winner1 = cars.get(1);
+		Car winner2 = cars.get(2);
+		winner1.moveForward(5);
+		winner2.moveForward(5);
+		List<Car> expected = Arrays.asList(winner1, winner2);
+		assertThat(game.winners().containsAll(expected)).isTrue();
+	}
 }

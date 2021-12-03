@@ -13,8 +13,13 @@ public class WinnerView {
 	}
 
 	private static String formatWinners(List<Car> cars) {
-		return cars.toString()
-			.replace("[", "")
-			.replace("[", "");
+		String formatString = "";
+		if (cars.size() == 1) {
+			return cars.get(0).getName();
+		}
+		for (Car car : cars) {
+			formatString += car.getName() + ", ";
+		}
+		return formatString.substring(0, formatString.length() - 2);
 	}
 }

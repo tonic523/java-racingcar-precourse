@@ -5,6 +5,7 @@ import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
+import racingcar.utils.Validation;
 
 public class InputController {
 
@@ -21,6 +22,17 @@ public class InputController {
 		} catch (IllegalArgumentException e) {
 			System.out.println(ERROR_MESSAGE + " " + e.getMessage());
 			return requestCarsName();
+		}
+	}
+
+	public static int requestCount() {
+		try {
+			String input = Console.readLine();
+			Validation.isNumber(input);
+			return Integer.parseInt(input);
+		} catch (IllegalArgumentException e) {
+			e.getMessage();
+			return requestCount();
 		}
 	}
 }

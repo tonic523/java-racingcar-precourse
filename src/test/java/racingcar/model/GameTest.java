@@ -31,7 +31,12 @@ public class GameTest {
 			new Car("car2"),
 			new Car("car3")
 		);
-		assertThat(game.getCars().containsAll(expected)).isTrue();
+		List<Car> actual = game.getCars();
+		for (int i = 0; i < expected.size(); i++) {
+			assertThat(
+				actual.get(i).getName())
+				.isEqualTo(expected.get(i).getName());
+		}
 	}
 
 	@DisplayName("경주 진행")

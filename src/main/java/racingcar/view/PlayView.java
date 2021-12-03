@@ -14,11 +14,12 @@ public class PlayView {
 
 	public static void statusBoardUI(List<Car> cars) {
 		for (Car car : cars) {
-			System.out.printf("%s : %d\n",
+			System.out.printf("%s : %s\n",
 				car.getName(),
 				formatPosition(car.getPosition())
 			);
 		}
+		System.out.println();
 	}
 
 	private static String formatPosition(int position) {

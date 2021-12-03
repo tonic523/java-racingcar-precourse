@@ -6,6 +6,7 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
 import racingcar.utils.Validation;
+import racingcar.view.InputView;
 
 public class InputController {
 
@@ -13,6 +14,7 @@ public class InputController {
 
 	public static List<Car> requestCarsName() {
 		try {
+			InputView.carNameUI();
 			String[] carNames = Console.readLine().split(",");
 			List<Car> cars = new ArrayList<>();
 			for (String carName : carNames) {
@@ -27,6 +29,7 @@ public class InputController {
 
 	public static int requestCount() {
 		try {
+			InputView.countUI();
 			String input = Console.readLine();
 			Validation.isNumber(input);
 			return Integer.parseInt(input);

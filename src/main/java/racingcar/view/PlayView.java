@@ -24,4 +24,5 @@ public class PlayView {
 	private static String formatPosition(int position) {
 		return new String(new char[position]).replace("\0", "-");
 	}
+
 }

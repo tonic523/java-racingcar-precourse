@@ -24,6 +24,10 @@ public class Game {
 		}
 	}
 
+	public List<Car> getCars() {
+		return cars;
+	}
+
 	private static void validateLeastTwoCars(List<Car> cars) throws IllegalArgumentException {
 		if (cars.size() < 2) {
 			throw new IllegalArgumentException("참가할 자동차는 최소 2대 이상이다.");

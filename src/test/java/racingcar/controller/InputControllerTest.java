@@ -19,7 +19,7 @@ public class InputControllerTest {
 		@ParameterizedTest
 		@ValueSource(strings = {"car1,car2", "car12,c,car1"})
 		void success(String input) {
-			List<Car> cars = InputController.requestCarName(input);
+			List<Car> cars = InputController.inputCarName();
 			String[] carNames = input.split(",");
 			for (int i = 0; i < carNames.length; i++) {
 				assertThat(carNames[i]).isEqualTo(cars.get(i).getName());
@@ -34,16 +34,8 @@ public class InputControllerTest {
 		@ParameterizedTest
 		@ValueSource(strings = {"1", "2", "10"})
 		void success(String input) {
-			assertThat(InputController.requestCount(input))
+			assertThat(InputController.inputCount())
 				.isEqualTo(Integer.parseInt(input));
-		}
-
-		@DisplayName("실패")
-		@ParameterizedTest
-		@ValueSource(strings = {"0", "a", "1a", "-1"})
-		void fail(String input) {
-			assertThatThrownBy(() -> InputController.requestCount(input))
-				.isInstanceOf(IllegalArgumentException.class);
 		}
 	}
 }

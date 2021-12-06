@@ -1,25 +1,36 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
+import racingcar.utils.Convertation;
 import racingcar.utils.Validate;
 
 public class InputController {
-	public static List<Car> requestCarName(String request) {
-		List<Car> cars = new ArrayList<>();
-		Validate.containComma(request);
-		String[] carNames = request.split(",");
-		for (String carName : carNames) {
-			cars.add(new Car(carName));
+
+	private static final String ERROR_MESSAGE = "[ERROR]";
+
+	public static List<Car> inputCarName() {
+		try {
+			String input = Console.readLine();
+			Validate.containComma(input);
+			return Convertation.namesToCars(input.split(","));
+		} catch (IllegalArgumentException e) {
+			System.out.println(ERROR_MESSAGE + " " + e.getMessage());
+			return inputCarName();
 		}
-		return cars;
 	}
 
-	public static int requestCount(String input) {
-		Validate.isNumber(input);
-		Validate.isZero(input);
-		return Integer.parseInt(input);
+	public static int inputCount() {
+		try {
+			String input = Console.readLine();
+			Validate.isNumber(input);
+			Validate.isZero(input);
+			return Integer.parseInt(input);
+		} catch (IllegalArgumentException e) {
+			System.out.println(ERROR_MESSAGE + " " + e.getMessage());
+			return inputCount();
+		}
 	}
 }

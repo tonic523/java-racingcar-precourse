@@ -23,4 +23,13 @@ public class ValidateTest {
 			.isInstanceOf(IllegalArgumentException.class)
 			.hasMessageContaining("자동차 이름은 1~5자여야 한다.");
 	}
+
+	@DisplayName("숫자인지 검사")
+	@Test
+	public void isNumber() {
+		String input = "a12";
+		assertThatThrownBy(() -> Validate.isNumber(input))
+			.isInstanceOf(IllegalArgumentException.class)
+			.hasMessageContaining("시도 횟수는 숫자여야 한다.");
+	}
 }

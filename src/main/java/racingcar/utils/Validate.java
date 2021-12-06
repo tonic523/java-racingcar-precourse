@@ -13,4 +13,12 @@ public class Validate {
 			throw new IllegalArgumentException("자동차 이름은 1~5자여야 한다.");
 		}
 	}
+
+	public static void isNumber(String input) {
+		for (int i = 0; i < input.length(); i++) {
+			if (!Character.isDigit(input.charAt(i))) {
+				throw new IllegalArgumentException("시도 횟수는 숫자여야 한다.");
+			}
+		}
+	}
 }

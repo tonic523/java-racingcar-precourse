@@ -15,15 +15,6 @@ public class ValidateTest {
 			.hasMessageContaining("쉼표가 포함되어야 한다.");
 	}
 
-	@DisplayName("자동차 이름은 1~5자")
-	@Test
-	public void correctLength() {
-		String input = "carName";
-		assertThatThrownBy(() -> Validate.correctLength(input))
-			.isInstanceOf(IllegalArgumentException.class)
-			.hasMessageContaining("자동차 이름은 1~5자여야 한다.");
-	}
-
 	@DisplayName("숫자인지 검사")
 	@Test
 	public void isNumber() {

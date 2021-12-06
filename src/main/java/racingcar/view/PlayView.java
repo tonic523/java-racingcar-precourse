@@ -12,7 +12,7 @@ public class PlayView {
 
 	public static void resultUI(List<Car> cars) {
 		for (Car car : cars) {
-			System.out.printf("%s : %d",
+			System.out.printf("%s : %s\n",
 				car.getName(),
 				formatPosition(car.getPosition()));
 		}

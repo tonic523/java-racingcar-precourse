@@ -26,4 +26,24 @@ public class InputControllerTest {
 			}
 		}
 	}
+
+	@DisplayName("회수 입력")
+	@Nested
+	class InputCount {
+		@DisplayName("성공")
+		@ParameterizedTest
+		@ValueSource(strings = {"1", "2", "10"})
+		void success(String input) {
+			assertThat(InputController.requestCount(input))
+				.isEqualTo(Integer.parseInt(input));
+		}
+
+		@DisplayName("실패")
+		@ParameterizedTest
+		@ValueSource(strings = {"0", "a", "1a", "-1"})
+		void fail(String input) {
+			assertThatThrownBy(() -> InputController.requestCount(input))
+				.isInstanceOf(IllegalArgumentException.class);
+		}
+	}
 }

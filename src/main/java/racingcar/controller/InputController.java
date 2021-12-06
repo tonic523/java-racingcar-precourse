@@ -16,4 +16,10 @@ public class InputController {
 		}
 		return cars;
 	}
+
+	public static int requestCount(String input) {
+		Validate.isNumber(input);
+		Validate.isZero(input);
+		return Integer.parseInt(input);
+	}
 }

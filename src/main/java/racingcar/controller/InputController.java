@@ -5,7 +5,7 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
 import racingcar.utils.Convertation;
-import racingcar.utils.Validate;
+import racingcar.utils.Validation;
 
 import static racingcar.view.InputView.*;
 
@@ -17,8 +17,10 @@ public class InputController {
 		try {
 			carNameUI();
 			String input = Console.readLine();
-			Validate.containComma(input);
-			return Convertation.namesToCars(input.split(","));
+			Validation.containComma(input);
+			String[] names = input.split(",");
+			Validation.leastTwoNames(names);
+			return Convertation.namesToCars(names);
 		} catch (IllegalArgumentException e) {
 			System.out.println(ERROR_MESSAGE + " " + e.getMessage());
 			return inputCarName();
@@ -29,8 +31,8 @@ public class InputController {
 		try {
 			countUI();
 			String input = Console.readLine();
-			Validate.isNumber(input);
-			Validate.isZero(input);
+			Validation.isNumber(input);
+			Validation.isZero(input);
 			return Integer.parseInt(input);
 		} catch (IllegalArgumentException e) {
 			System.out.println(ERROR_MESSAGE + " " + e.getMessage());

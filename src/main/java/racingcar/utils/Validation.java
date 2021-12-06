@@ -1,9 +1,15 @@
 package racingcar.utils;
 
-public class Validate {
+public class Validation {
 	public static void containComma(String input) throws IllegalArgumentException {
 		if (!input.contains(",")) {
 			throw new IllegalArgumentException("쉼표가 포함되어야 한다.");
+		}
+	}
+
+	public static void leastTwoNames(String[] input) throws IllegalArgumentException {
+		if (input.length < 2) {
+			throw new IllegalArgumentException("자동차는 최소 2대이상이어야 한다.");
 		}
 	}
 

@@ -10,7 +10,7 @@ public class ValidateTest {
 	@Test
 	public void containComma() {
 		String input = "car1:car2";
-		assertThatThrownBy(() -> Validate.containComma(input))
+		assertThatThrownBy(() -> Validation.containComma(input))
 			.isInstanceOf(IllegalArgumentException.class)
 			.hasMessageContaining("쉼표가 포함되어야 한다.");
 	}
@@ -19,7 +19,7 @@ public class ValidateTest {
 	@Test
 	public void isNumber() {
 		String input = "a12";
-		assertThatThrownBy(() -> Validate.isNumber(input))
+		assertThatThrownBy(() -> Validation.isNumber(input))
 			.isInstanceOf(IllegalArgumentException.class)
 			.hasMessageContaining("시도 횟수는 숫자여야 한다.");
 	}
@@ -28,7 +28,7 @@ public class ValidateTest {
 	@Test
 	public void isZero() {
 		String input = "0";
-		assertThatThrownBy(() -> Validate.isZero(input))
+		assertThatThrownBy(() -> Validation.isZero(input))
 			.isInstanceOf(IllegalArgumentException.class)
 			.hasMessageContaining("회수는 0이면 안된다.");
 	}

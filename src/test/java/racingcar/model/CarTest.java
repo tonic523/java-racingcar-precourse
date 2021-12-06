@@ -13,4 +13,12 @@ public class CarTest {
 			.isInstanceOf(IllegalArgumentException.class)
 			.hasMessageContaining("자동차 이름은 1~5자여야 한다.");
 	}
+
+	@DisplayName("1칸씩 전진")
+	@Test
+	public void move() {
+		Car car1 = new Car("car1");
+		car1.move();
+		assertThat(car1.getPosition()).isEqualTo(1);
+	}
 }

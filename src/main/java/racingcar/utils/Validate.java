@@ -21,4 +21,10 @@ public class Validate {
 			}
 		}
 	}
+
+	public static void isZero(String input) throws IllegalArgumentException {
+		if (Integer.parseInt(input) == 0) {
+			throw new IllegalArgumentException("회수는 0이면 안된다.");
+		}
+	}
 }

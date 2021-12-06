@@ -32,4 +32,13 @@ public class ValidateTest {
 			.isInstanceOf(IllegalArgumentException.class)
 			.hasMessageContaining("시도 횟수는 숫자여야 한다.");
 	}
+
+	@DisplayName("입력값이 0인지")
+	@Test
+	public void isZero() {
+		String input = "0";
+		assertThatThrownBy(() -> Validate.isZero(input))
+			.isInstanceOf(IllegalArgumentException.class)
+			.hasMessageContaining("회수는 0이면 안된다.");
+	}
 }

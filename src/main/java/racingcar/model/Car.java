@@ -1,6 +1,6 @@
 package racingcar.model;
 
-public class Car {
+public class Car implements Comparable<Car> {
 
 	public static final int MIN_LENGTH_NAME = 1;
 	public static final int MAX_LENGTH_NAME = 5;
@@ -33,5 +33,10 @@ public class Car {
 					MIN_LENGTH_NAME, MAX_LENGTH_NAME)
 			);
 		}
+	}
+
+	@Override
+	public int compareTo(Car c) {
+		return this.position - c.position;
 	}
 }

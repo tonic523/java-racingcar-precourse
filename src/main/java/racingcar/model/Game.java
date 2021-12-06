@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
@@ -22,6 +24,18 @@ public class Game {
 				car.move();
 			}
 		}
+	}
+
+	public List<Car> winners() {
+		List<Car> winners = new ArrayList<>();
+		Collections.sort(cars);
+		int max_position = cars.get(0).getPosition();
+		for (Car car : cars) {
+			if (car.getPosition() == max_position) {
+				winners.add(car);
+			}
+		}
+		return winners;
 	}
 
 	public List<Car> getCars() {
